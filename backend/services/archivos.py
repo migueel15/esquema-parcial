@@ -15,7 +15,7 @@ archivos_bp = APIRouter(prefix="/parcial/archivos", tags=["archivos"])
 
 # Configuración de MongoDB
 client = pymongo.MongoClient(MONGO_URL)
-db = client.ParcialWeb
+db = client.parcialFront
 archivos = db.archivos
 
 # MicroServicio de ARCHIVOS

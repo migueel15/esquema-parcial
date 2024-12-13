@@ -6,7 +6,7 @@ from google.auth.transport import requests
 from google.oauth2 import id_token
 from starlette.middleware.base import BaseHTTPMiddleware
 
-GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID_MIGUEL")
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 
 class AuthMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):

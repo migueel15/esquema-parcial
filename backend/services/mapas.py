@@ -1,19 +1,19 @@
-import httpx
 import os
+
+import httpx
 import pymongo
 from bson.objectid import ObjectId
+from cachetools import TTLCache
 from dotenv import load_dotenv
 from fastapi import APIRouter, HTTPException
-from cachetools import TTLCache
-
-from models.mapa import MapaId, Mapa, MapaNew, MapaUpdate
+from models.mapa import Mapa, MapaId, MapaNew, MapaUpdate
 
 load_dotenv()
 MONGO_URL = os.getenv("MONGO_URL")
 
 mapas_bp = APIRouter(prefix="/parcial/mapas", tags=["mapas"])
 
-db = pymongo.MongoClient(MONGO_URL).laWikiv2
+db = pymongo.MongoClient(MONGO_URL).parcialFront
 mapas = db.mapas
 
 cache = TTLCache(maxsize=100, ttl=3600)

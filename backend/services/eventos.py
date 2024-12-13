@@ -9,12 +9,11 @@ from models.evento import (Evento, EventoList, EventoNew, EventoQuery,
 
 load_dotenv()
 MONGO_URL = os.getenv("MONGO_URL")
-MONGO_DB = os.getenv("MONGO_DB")
 
 eventos_bp = APIRouter(prefix="/eventos", tags=["eventos"])
 
 client = pymongo.MongoClient(MONGO_URL)
-db = client.MONGO_DB
+db = client.parcialFront
 eventos = db.eventos
 
 @eventos_bp.get("/")

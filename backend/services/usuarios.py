@@ -16,7 +16,7 @@ usuarios_router = APIRouter(prefix="/parcial/usuarios", tags=["usuarios"])
 
 # Configuración de MongoDB
 client = MongoClient(MONGO_URL)
-db = client.ParcialWeb
+db = client.parcialFront
 usuarios = db.usuarios
 
 # GET /usuarios
@@ -46,4 +46,3 @@ def create_user(user: UserNew):
         raise HTTPException(
             status_code=400, detail=f"Error al crear el usuario: {str(e)}"
         )
-
